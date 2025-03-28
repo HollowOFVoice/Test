@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Панель администратора BookSwap</h2>
+
+<div style="margin-bottom: 20px;">
+    <a href="/admin/" class="btn">Стандартная админка Django</a>
+</div>
+
+<h3>Статистика</h3>
+<ul>
+    <li>Пользователей: {{ users_count }}</li>
+    <li>Книг в обмене: {{ books_count }}</li>
+</ul>
+
+<h3>Последние добавленные книги</h3>
+<ul>
+    {% for book in last_books %}
+    <li>{{ book.title }} ({{ book.author }}) - {{ book.owner.username }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

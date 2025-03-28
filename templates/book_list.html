@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Доступные книги</h2>
+<a href="{% url 'add-book' %}">Добавить книгу</a>
+<ul>
+    {% for book in object_list %}
+    <li>
+        <strong>{{ book.title }}</strong> - {{ book.author }}<br>
+        Жанр: {{ book.genre }}, Состояние: {{ book.condition }}
+    </li>
+    {% empty %}
+    <li>Нет доступных книг</li>
+    {% endfor %}
+</ul>
+{% endblock %}
